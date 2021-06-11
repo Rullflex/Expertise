@@ -1,0 +1,11 @@
++popup#callback
+     form.a-form&attributes(attributes)
+        p.a-form__title Wir sind in #[span.text-blue 60 Minuten] bei Ihnen vor Ort ohne Terminsvereinbarung. Kostenlos!
+        .a-form__input-wrap.input-wrap 
+            input.a-form__input.input(type='tel' name='Telefonnummer' placeholder="Telefonnummer eingeben")
+        button.a-form__btn.btn.btn-solid-primary(type="submit") 
+            +icon('phone')
+            span Jetzt Rückruf Kostenlos anfordern
+        .a-form__bot 
+            p.a-form__bot-text Oder selbst anrufen:
+            a.a-form__bot-phone.link(href=phoneLink)= phoneNumber

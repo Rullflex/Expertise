@@ -1,0 +1,50 @@
+.input {
+    $self: &;
+    display: block;
+    border-width: 0.0625rem;
+    border-style: solid;
+    border-color: transparent;
+    transition: $transition--normal;
+
+    width: 16.6875rem;
+    height: 3.4375rem;
+
+    background: #F2F2F2;
+    border-radius: 3.125rem;
+
+    text-align: center;
+    color: $text-dark;
+    font-size: 0.875rem;
+    &:focus {}
+    &-wrap {
+        &.has-error {
+            #{$self} {
+                border-color: $danger !important;
+                // box-shadow: 0px 0px 0.5rem 0.1875rem rgba($danger, 0.19);
+                color: $danger;
+            }
+        }
+        &.has-success {
+            #{$self} {
+                border-color: $success !important;
+                // box-shadow: 0px 0px 0.5rem 0.1875rem rgba($success, 0.19);
+                color: $success;
+            }
+        }
+    }
+}
+@media (min-width: map-get($grid-breakpoints, md)) {
+    .input {
+        width: 23.875rem;
+        height: 4.1875rem;
+        border-radius: 5rem;
+    }
+}
+@media (min-width: map-get($grid-breakpoints, lg)) {
+    .input {
+        font-size: 1rem;
+        width: 21.875rem;
+        height: 4.0625rem;
+        border-radius: 5.625rem;
+    }
+}

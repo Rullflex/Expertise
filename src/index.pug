@@ -1,0 +1,171 @@
+extends modules/layout/_layout
+
+prepend head
+	title Expertise
+	meta(name="description", content="Описание страницы")
+
+block header
+	header.header
+		.container 
+			.header__row
+				img.header__logo(src=`${modules}logo.svg` alt="")
+				.header__place 
+					+picture(png, `${modules}header-map-2x`, 'n')
+					span Stuttgart
+				a.header__phone(href=phoneLink)
+					+icon('phone')
+					span= phoneNumber
+
+
+block footer 
+	footer.footer 
+		.footer__top
+			.container.footer__top-container
+				a.footer__top-impressum(href="#") Impressum
+				a.footer__top-daten(href="#") Datenschutz
+		.footer__bot
+			.container.footer__bot-container
+				.footer__bot-sud Süd West Gutachterzentrale e.K      
+				.footer__bot-adress Mailänder Platz 15#[br.d-md-none] 70173 Stuttgart
+				.footer__bot-phone Telefon: #[a.link(href=phoneLink)= phoneNumber]
+				.footer__bot-mail E-Mail: #[a.link(href=`mailto${mailAdress}`)= mailAdress]
+
+
+
+block content
+	main.main
+		section.s1
+			.s1__bg.ibg
+				+picture-min(jpg, `${assets}s1-bg`, `${assets}s1-bg`, 'sm').s1__bg
+			.container 
+				p.s1__suptitle Wir erstellen ein
+				h1.s1__title Unabhängiges#[br.d-lg-none] Gutachten
+				p.s1__subtitle mit maximal erhöhter Schadensumme im gesetzlichen Rahmen für Ihr Fahrzeug nach einem#[br.d-md-none] Verkehrsunfall
+				+picture-min(png, `${assets}s1-expert`, `${assets}s1-expert`, 'sm').s1__expert
+				+a-from.s1__form
+		section.s2 
+			.container 
+				.s2__blocks 
+					.s2__block.s2__block--1
+						+picture(png, `${assets}s2-money`, 'n').s2__block-img
+						.s2__block-big +30%
+						p.s2__block-descr Im Durchschnitt liegt die Auszahlungssumme #[span.text-blue nach unseren Gutachten um 30% höher], als über einen vom Versicherer beauftragten Sachverständigen oder einer Werkstatt
+					.s2__block.s2__block--2
+						+picture(png, `${assets}s2-car`, 'sm').s2__block-img
+						.s2__block-big 60min
+						p.s2__block-descr Wir sind in 60 Minuten bei Ihnen #[br]#[span.text-blue vor Ort ohne Terminsvereinbarung.] #[br]Bei Ihrer Arbeitsstätte oder zu Hause
+		section.s3 
+			.container
+				h2.s3__title Auszahlungen oder Reparatur?
+				p.s3__subtitle Mit Vorliegen unseres Gutachtens können Sie Ihr Fahrzeug#[br.d-none.d-md-inline] in die Reparatur bringen oder sich die Schadenssumme#[br.d-none.d-lg-inline] auszahlen und das Fahrzeug eigenständig reparieren lassen
+				+picture(jpg, `${assets}s3-set`, 'sm').s3__img
+				+a-from.s3__form
+		section.s4
+			.container
+				h2.s4__title Ich kann doch ein Kostenvoranschlag holen,#[br.d-none.d-lg-inline] wofür ein Gutachten?
+				+picture(png, `${assets}s4-bg`, 'n').s4__bg.d-none.d-lg-block
+				+picture(jpg, `${assets}s4-man`, 'sm').s4__man-1.d-lg-none
+				+picture(png, `${assets}s4-man-lg`, 'n').s4__man-2.d-none.d-lg-block
+				+picture(png, `${assets}s4-rect-lg`, 'n').s4__rect.d-none.d-lg-block
+				.s4__block
+					.s4__list-title Kostenvoranschlag
+					ul.s4__list
+						li.s4__list-item Keine Wertminderung #[span.d-none.d-md-inline die Ihnen Ausgezahlt werden müsste. Ihr Fahrzeug ist jetzt schließlich ein Unfallwagen und weniger Wert!]
+						li.s4__list-item Kein Nutzungsausfall#[span.d-none.d-md-inline &nbsp;den Sie sich ebenfalls auszahlen können, wenn Sie kein Ersatzfahrzeug benötigen]#[span .] Bis zu 175€ am Tag!
+						li.s4__list-item #[span.d-none.d-md-inline Die Schadenssumme im&nbsp;]Kostenvoranschlag darf nur bis zu 15% überschritten werden#[span.d-none.d-md-inline &nbsp;falls die tatsächlichen Reparaturkosten höher sind]#[span .]#[br.d-md-none]  #[span Auf dem Rest bleiben Sie sitzen!]
+						li.s4__list-item #[span Keine Ermittlung von Wiederbeschaffungwert & Restwert]
+						li.s4__list-item Sie haben die gesamte Abwicklung mit der Versicherung. #[span.d-none.d-md-inline #[br]Das kostet Zeit und Nerven!]
+		section.s5
+			.container
+				h2.s5__title Unser Gutachten
+				.s5__circle
+				+picture(png, `${assets}s5-bg`, 'n').s4__bg.d-none.d-lg-block
+				+picture(png, `${assets}s5-rect`, 'n').s5__rect.d-none.d-md-block
+				+picture(png, `${assets}s5-man`, 'sm').s5__man
+				.s5__block 
+					+picture(png, `${assets}s5-itemset`, 'sm').s5__itemset
+					ul.s5__block-list 
+						li.s5__block-item.s5__block-item--1 Ermittlung#[br] der Wertminderung
+						li.s5__block-item.s5__block-item--2 Nutzungsausfall bis#[br.d-md-none] zu 175 € pro Tag
+						li.s5__block-item.s5__block-item--3 Schadensbedingte#[br.d-none.d-md-inline] Kostenausweitung jeder#[br.d-none.d-md-inline] Zeit möglich
+						li.s5__block-item.s5__block-item--4 Wir regulieren alle#[br.d-none.d-md-inline.d-lg-none] nötigen Formalitäten mit#[br.d-none.d-md-inline.d-lg-none] der Versicherung
+						li.s5__block-item.s5__block-item--5 Wiederbeschaffung &#[br.d-none.d-md-inline] Restwertermittlung
+		section.s6
+			.container
+				h2.s6__title Alle unsere Dienstleistungen sind für Sie Kostenlos!
+				+icon('circles').s6__circles
+				+picture(png, `${assets}s6-paper`, 'n').s6__paper
+				+a-from.s6__form
+		section.s7
+			.container
+				h2.s7__title Wir sind in folgenden Städten und Umgebung ohne Terminsvereinbarung#[br] in 60 Minuten#[br.d-md-none] bei Ihnen vor Ort!
+				.s7__map
+					.s7__map-circles
+						- for(var x = 0; x < 4; x++)
+							svg(width="24" height="23" viewBox="0 0 24 23" fill="none" xmlns="http://www.w3.org/2000/svg")
+								circle(cx="11.9407" cy="11.5598" r="10.7133" stroke="white" stroke-opacity="0.73")
+						
+					.s7__map-bg.ibg
+						+picture(jpg, `${assets}s7-bg`, 'sml')
+					+picture(png, `${assets}s7-auto`, 'n').s7__map-auto
+					svg(viewbox='0 0 573 472' fill='none' xmlns='http://www.w3.org/2000/svg').s7__map-svg
+						path(d='M319.36 242.712C318.006 243.343 314.79 244.788 312.753 245.515C310.206 246.425 308.751 246.425 304.749 246.789C300.747 247.152 299.473 246.789 297.654 246.789C295.835 246.789 297.291 248.319 294.198 245.515C291.105 242.712 290.014 242.712 288.195 242.712C286.739 242.712 282.252 242.712 280.19 242.712C280.19 244.859 280.19 249.481 280.19 250.791C280.19 252.428 280.008 260.614 275.824 262.979C272.477 264.871 268.365 267.042 266.728 267.891C265.333 269.225 262.216 272.221 260.906 273.531C259.269 275.168 249.991 275.532 248.172 276.623C246.353 277.715 238.348 282.081 237.075 285.537C235.801 288.994 234.891 290.995 233.254 294.451C231.617 297.908 231.072 300.091 227.07 301.728C223.067 303.365 219.065 304.821 217.974 305.73C216.882 306.64 215.426 308.459 212.698 309.551C209.969 310.642 203.966 313.189 201.601 313.553C199.236 313.917 190.14 314.644 188.139 316.646C186.138 318.647 186.138 319.738 184.137 322.285C182.536 324.323 180.922 330.047 180.316 332.654C179.649 334.898 177.733 339.677 175.405 340.841C172.494 342.296 170.857 343.57 168.856 344.843C166.854 346.116 169.401 352.847 166.126 355.394' stroke='#4873FF' stroke-width='2')
+						path(d='M325.281 246.701C324.879 248.307 323.305 251.952 320.222 253.687C316.369 255.854 308.902 256.577 311.792 261.153C314.683 265.73 315.405 271.029 316.128 274.883C316.851 278.737 316.128 283.554 316.128 288.854C316.128 294.153 316.128 296.321 316.128 299.211C316.128 302.102 313.96 304.028 316.128 306.919C318.296 309.809 321.909 315.109 323.595 317.036C325.281 318.963 324.076 322.094 325.281 324.021C326.486 325.948 329.617 331.97 330.58 332.933C331.351 333.704 334.756 338.232 336.361 340.4C336.602 341.926 339.734 345.41 350.332 347.145C363.58 349.312 363.58 350.998 364.062 354.13C364.543 357.261 365.989 363.283 364.062 367.137C362.135 370.991 360.689 372.918 361.653 375.567C362.616 378.217 363.339 384.239 366.47 386.166C369.602 388.093 375.383 388.093 376.105 390.742C376.828 393.392 373.696 392.91 376.105 396.523C378.514 400.136 381.163 401.822 381.886 403.509C382.609 405.195 381.886 407.844 381.886 409.289C381.886 410.735 386.222 413.625 384.054 417.479C385.023 414.749 387.103 409.289 387.674 409.289C388.387 409.289 388.209 405.736 391.24 404.622C394.271 403.509 395.52 401.851 397.481 401.494C399.442 401.138 400.334 399.533 405.326 399.176C409.321 398.891 413.766 399.057 415.49 399.176C418.389 398.106 424.774 395.717 427.118 394.718C430.049 393.47 432.169 390.742 434.026 390.742C435.883 390.742 439.693 390.742 441.143 390.742C442.593 390.742 447.632 391.937 451.4 390.742C455.168 389.548 461.315 389.369 463.633 388.299C465.951 387.23 470.766 385.981 474.153 384.733C477.541 383.485 496.798 380.097 498.403 379.562C500.008 379.027 502.326 378.492 504.109 377.958C505.536 377.53 510.172 377.779 512.311 377.958M328.314 235.274C329.431 230.25 331.705 219.951 331.873 218.946C332.082 217.69 336.361 210.782 336.361 209.108C336.361 207.433 339.409 204.712 340.665 203.875C341.921 203.037 346.526 199.479 347.782 199.479C348.787 199.479 352.666 201.712 354.48 202.828C354.776 204.712 356.235 208.982 359.714 210.992C364.062 213.504 367.459 217.69 369.134 218.946C370.808 220.202 374.367 221.668 375.832 225.017C377.297 228.366 380.856 231.715 382.112 235.274C383.368 238.833 384.415 242.638 386.089 246.701C387.764 250.765 390.067 256.285 392.16 258.719C394.253 261.153 393.416 264.999 398.858 264.58C404.301 264.162 403.254 262.906 407.65 264.58C412.046 266.255 414.977 268.348 418.326 270.232C421.675 272.116 420.629 272.835 424.606 274.883C428.583 276.931 426.49 277.14 431.933 279.024C437.375 280.908 448.888 285.941 451.4 287.398C453.912 288.854 458.308 287.798 459.564 288.854C460.82 289.909 468.984 292.003 471.496 292.003C474.008 292.003 477.985 292.003 482.381 292.003C486.777 292.003 489.917 292.421 492.429 294.305C494.941 296.189 494.732 296.372 496.825 299.211C498.5 301.483 497.523 305.296 496.825 306.919C495.22 308.087 491.466 310.843 489.289 312.517C486.568 314.61 483.847 317.541 481.335 318.169C478.823 318.797 473.38 317.76 471.496 320.89C469.989 323.395 467.798 329.962 466.891 332.933C465.146 334.082 461.239 336.548 459.564 337.218C457.471 338.055 455.796 340.4 455.168 340.4C454.54 340.4 453.912 344.038 451.4 345.591C448.888 347.145 446.795 348.522 446.167 350.406C445.539 352.29 442.19 356.058 441.143 358.57C440.097 361.082 437.166 371.004 436.329 375.567C435.491 380.131 436.329 380.478 436.329 386.166C436.329 391.853 434.445 394.913 434.026 396.523C433.607 398.133 431.933 401.901 431.933 404.622C431.933 407.344 431.514 412.786 430.049 414.252C428.583 415.717 427.746 417.601 427.118 419.694C426.49 421.788 427.955 437.123 429.002 439.398C430.049 441.674 430.258 448.163 427.118 451.303C423.978 454.443 424.187 456.955 421.675 458.42C419.163 459.886 412.256 465.538 411.628 466.794C411.125 467.798 409.046 470.143 408.069 471.19' stroke='#4873FF' stroke-width='2')
+						path(d='M330.34 238.512C332.347 235.059 337.036 227.672 339.733 225.745C343.106 223.337 347.441 218.278 350.332 216.833C353.222 215.388 359.967 213.22 362.616 212.497C365.266 211.775 369.12 209.366 372.733 207.921C376.346 206.476 379.477 202.862 383.813 201.417C388.149 199.972 391.039 197.804 395.616 197.563C400.192 197.323 401.156 200.695 402.842 197.563C404.191 195.058 407.419 189.454 408.864 186.965C409.667 185.199 411.899 181.569 414.404 181.184C416.909 180.799 423.958 181.023 427.17 181.184C429.659 180.301 435.167 177.33 437.287 172.513C439.936 166.491 436.082 161.914 440.659 159.747C445.235 157.579 450.294 151.316 449.812 146.499C449.33 141.681 451.016 138.791 452.221 137.346C453.184 136.189 456.797 133.492 458.483 132.287C460.41 127.791 465.083 118.509 468.359 117.353C472.454 115.908 470.045 112.777 472.695 109.405C480.884 104.828 484.497 104.105 486.906 101.215C489.315 98.3243 488.111 95.9157 491.483 92.7844C494.855 89.653 495.096 88.6893 497.505 87.485C499.913 86.2806 504.008 84.5949 504.972 81.7044C505.935 78.814 507.621 72.3102 508.344 71.1058C508.922 70.1423 510.03 66.2081 510.512 64.3614C509.066 63.398 506.609 61.0376 508.344 59.3034C510.078 57.5691 512.117 52.9604 512.92 50.8729C512.037 49.5882 509.211 46.5369 504.972 44.6099C499.672 42.2012 497.505 41.9606 497.505 38.5884C497.505 35.2162 496.3 31.8439 497.505 29.1943C498.709 26.5447 504.972 22.209 504.972 20.7637C504.972 19.3185 508.103 16.4281 510.512 14.0194C512.92 11.6107 515.811 7.75661 516.293 6.31138C516.774 4.86615 517.497 2.21651 518.701 1.4939' stroke='#4873FF' stroke-width='2')
+						path(d='M332.507 219.964C330.902 219.081 327.69 216.496 327.69 213.22C327.69 209.125 327.69 205.753 327.69 203.103C327.69 200.454 329.135 195.396 330.098 192.987C331.062 190.578 330.098 188.169 330.098 186.483C330.098 185.134 322.069 182.293 320.222 181.25C318.777 179.483 320.222 175.692 320.222 172.995C320.222 169.622 317.332 166.491 317.332 164.082C317.332 161.673 317.332 158.783 317.332 156.374C317.332 153.965 320.704 152.52 322.631 151.075C324.558 149.63 325.282 148.185 327.69 146.739C330.098 145.294 330.581 142.885 332.507 141.681C334.433 140.477 335.156 141.681 336.842 139.032C338.528 136.382 340.696 134.696 340.214 133.251C339.733 131.806 339.01 125.302 339.01 122.652C339.01 120.533 339.813 114.703 340.214 112.054C339.09 109.806 336.842 104.828 336.842 102.901C336.842 100.492 336.842 93.7476 336.842 92.3024C336.842 91.1462 336.842 86.682 336.842 84.5945L324.558 81.7041L307.456 60.5071C306.252 58.3394 303.603 53.5221 302.639 51.5952C301.435 49.1864 299.267 45.8144 297.34 43.8874C295.413 41.9604 293.486 42.6828 293.486 39.5515C293.486 36.4202 294.69 34.975 293.486 33.048C292.281 31.121 290.113 26.3035 290.113 23.413C290.113 20.5226 284.574 21.0046 290.113 16.6689C295.653 12.3332 297.099 11.8515 298.785 9.20189C300.134 7.08222 300.632 3.82229 300.712 2.45728' stroke='#4873FF' stroke-width='2')
+						path(d='M280.784 242.688V234.723C276.086 231.148 266.077 223.692 263.626 222.467C260.562 220.935 256.885 216.032 251.676 213.581C246.468 211.13 244.629 212.049 236.663 209.904C228.697 207.76 228.084 205.615 224.714 205.615C222.018 205.615 212.152 212.764 207.556 216.339H202.347M202.347 216.339L186.895 211.768M202.347 216.339L212.459 222.467C215.114 228.697 220.486 242.014 220.731 245.446C221.038 249.735 219.505 253.106 224.714 261.991C229.923 270.877 229.922 271.183 236.663 274.553C242.056 277.249 248.919 281.192 251.676 282.826C252.902 284.256 255.721 287.36 257.192 288.341C259.03 289.566 257.804 291.711 263.626 293.55C269.448 295.388 277.72 299.065 283.235 299.065C288.75 299.065 292.733 299.065 302.538 299.065C312.343 299.065 312.649 300.29 316.632 301.209C323.985 304.273 335.016 312.852 337.773 313.465C340.531 314.078 343.901 316.223 345.433 316.223C346.965 316.223 349.416 316.223 355.85 316.223C362.285 316.223 369.638 311.933 373.927 311.32C378.217 310.708 380.974 311.32 386.183 311.32C391.392 311.32 394.456 313.465 397.213 313.465C399.971 313.465 402.728 313.465 407.324 313.465C411.92 313.465 416.822 316.223 418.661 316.223C420.499 316.223 428.772 320.512 430.61 322.044C432.081 323.27 445.317 332.768 451.751 337.364C454.713 340.325 461.617 346.678 465.539 348.394C470.441 350.539 470.441 350.845 473.199 353.296C475.956 355.747 476.263 356.36 482.084 358.811C487.905 361.262 493.114 364.02 495.259 364.939C497.404 365.858 501.693 368.616 505.063 371.68C508.434 374.744 509.047 375.05 512.723 377.807C516.4 380.565 513.336 380.259 519.157 382.71C524.979 385.161 522.834 385.467 530.188 387.306C537.541 389.144 545.507 387.306 553.167 387.306C560.827 387.306 564.504 388.838 567.567 387.306M115.026 170.993L130.958 177.121C133.511 179.674 138.924 185.148 140.149 186.619C141.681 188.457 145.052 191.521 147.197 193.053C149.341 194.585 157.92 199.181 160.678 200.713C162.884 201.938 174.874 207.351 180.593 209.904L186.895 211.768M186.895 211.768L168.645 222.467C164.915 224.037 157.401 228.243 157.188 232.503C156.922 237.828 160.117 239.359 157.188 241.024C154.259 242.688 154.792 245.446 151.863 245.446M151.863 245.446C149.52 245.446 143.078 243.608 140.149 242.688C139.793 243.608 138.762 245.446 137.484 245.446C135.887 245.446 134.957 248.479 132.958 249.544C130.958 250.609 131.094 251.408 127.632 252.473C124.171 253.538 113.254 250.876 111.39 252.473C109.899 253.751 108.106 255.669 107.395 256.467C106.508 256.467 103.88 256.467 100.472 256.467C96.2119 256.467 90.6208 256.467 87.9581 256.467C85.2954 256.467 80.2358 256.467 78.1056 256.467C75.9755 256.467 75.9755 255.136 64.5259 256.467C55.3661 257.533 50.2362 259.574 48.8162 260.462C46.0645 263.124 40.4013 268.822 39.7623 270.314C38.9634 272.177 40.0293 275.375 37.3666 279.101C35.2364 282.081 31.8635 284.425 30.4434 285.225M151.863 245.446L158.519 256.467C158.076 258.42 157.188 262.645 157.188 263.923C157.188 265.201 158.076 271.542 158.519 274.553C158.519 274.827 158.519 276.12 158.519 279.101C158.519 285.225 163.838 295.077 166.241 296.408C168.645 297.739 170.768 299.354 171.034 301.209C171.3 303.065 172.099 309.176 171.034 311.32C169.969 313.465 171.034 318.775 171.034 321.438C171.034 323.568 169.441 329.071 168.645 331.556L166.241 336.349L168.645 340.609L171.034 343.272' stroke='#4873FF' stroke-width='2')
+						path(d='M205.408 215.212C208.349 211.108 214.887 202.08 217.514 198.798C220.797 194.694 226.747 189.565 230.85 187.718C234.954 185.872 239.468 182.794 242.135 180.947C244.802 179.101 247.675 178.69 249.932 175.818C252.188 172.946 254.445 173.356 256.087 173.356C257.728 173.356 262.447 175.818 264.294 175.818C266.14 175.818 268.397 178.075 269.218 179.511C270.039 180.947 271.475 182.999 272.911 184.436C274.347 185.872 283.991 189.975 285.427 189.565C286.863 189.155 288.915 186.898 291.787 185.667C294.66 184.436 295.686 184.436 297.942 184.436C300.199 184.436 301.225 185.667 304.303 185.667C307.381 185.667 307.586 186.077 311.484 184.436C315.382 182.794 317.844 180.947 320.717 180.947C323.589 180.947 330.36 187.718 331.796 187.718C333.233 187.718 332.412 191.412 337.131 189.565C341.85 187.718 340.619 189.565 343.902 189.565C347.184 189.565 347.595 192.848 347.595 193.874C347.595 194.694 347.595 196.814 347.595 197.772L349.441 199.208C350.057 197.43 351.698 193.874 353.34 193.874C355.391 193.874 361.136 193.053 362.367 192.027C363.598 191.001 370.369 187.718 372.011 187.718C373.652 187.718 378.781 185.667 381.038 185.667C383.295 185.667 388.014 184.436 389.861 184.436C391.707 184.436 400.325 180.947 403.197 180.947C405.495 180.947 409.216 180.947 410.789 180.947H414.687C414.892 182.179 416.411 184.272 420.842 182.794C426.382 180.947 431.101 179.717 433.358 178.896C435.615 178.075 439.513 176.844 442.796 178.896C446.079 180.947 448.951 182.794 450.798 182.794C452.644 182.794 457.774 184.641 462.288 182.794C466.802 180.947 468.238 180.947 473.162 180.947C478.086 180.947 484.447 182.999 486.703 180.947C488.509 179.306 492.517 180.263 494.295 180.947C497.304 182.11 503.61 184.436 504.759 184.436C506.195 184.436 509.888 185.667 511.94 185.667C513.992 185.667 514.812 187.718 518.3 187.718' stroke='#4873FF' stroke-width='2')
+						path(d='M255.559 171.751C255.937 170.614 258.777 163.419 261.996 160.2C265.216 156.98 271.275 154.14 273.737 152.625C276.199 151.11 278.85 148.27 279.986 146.566C281.122 144.861 284.341 139.18 285.099 137.476C285.856 135.772 292.673 123.274 293.431 120.433C294.188 117.593 296.082 111.723 297.407 108.882C298.733 106.042 300.626 101.687 302.52 97.3314C304.414 92.9761 305.929 89.7567 306.307 88.0525C306.686 86.3482 307.443 81.8034 307.443 78.7736C307.443 75.7438 307.443 75.1756 307.443 72.9033C307.443 71.0854 309.337 66.2127 310.284 64.0036L307.443 59.0798' stroke='#4873FF' stroke-width='2')
+						circle(data-town="1" cx='419.788' cy='274.515' r='5' fill='white')
+						circle(data-town="2" cx='324.067' cy='239.932' r='5' fill='white')
+						circle(data-town="3" cx='425.808' cy='176.917' r='5' fill='white')
+						circle(data-town="4" cx='458.377' cy='129.112' r='5' fill='white')
+						circle(data-town="5" cx='510.14' cy='48.5393' r='5' fill='white')
+						circle(data-town="6" cx='331.808' cy='335.607' r='5' fill='white')
+						circle(data-town="7" cx='525.62' cy='386.649' r='5' fill='white')
+						circle(data-town="8" cx='493.444' cy='297.515' r='5' fill='white')
+						circle(data-town="9" cx='429.788' cy='408.135' r='5' fill='white')
+						circle(data-town="10" cx='177.66' cy='335.607' r='5' fill='white')
+						circle(data-town="11" cx='158.843' cy='278.556' r='5' fill='white')
+						circle(data-town="12" cx='53.8328' cy='257.269' r='5' fill='white')
+						circle(data-town="13" cx='164.583' cy='224.743' r='5' fill='white')
+						circle(data-town="14" cx='321.808' cy='181.917' r='5' fill='white')
+						circle(data-town="15" cx='335.982' cy='106.014' r='5' fill='white')
+						circle(data-town="16" cx='304.005' cy='51.5393' r='5' fill='white')
+						text(data-town="2" fill='white' xml:space='preserve' style='white-space: pre' font-family='Roboto' font-size='25' font-weight='500' letter-spacing='0em')
+							tspan( x='276.808' y='223.757') Stuttgart
+						text(data-town="14" fill='white' xml:space='preserve' style='white-space: pre' font-family='Roboto' font-size='15.55' letter-spacing='0em')
+							tspan( x='294.139' y='165.315') Weilindorf
+						text(data-town="1" fill='white' xml:space='preserve' style='white-space: pre' font-family='Roboto' font-size='15.55' letter-spacing='0em')
+							tspan( x='398.47' y='244.584') Esslingen 
+							tspan(x='398.47' y='262.584') am Neckar
+						text(data-town="8" fill='white' xml:space='preserve' style='white-space: pre' font-family='Roboto' font-size='15.55' letter-spacing='0em')
+							tspan(x='458.377' y='283.871') Plochingen
+						text(data-town="6" fill='white' xml:space='preserve' style='white-space: pre' font-family='Roboto' font-size='15.55' letter-spacing='0em')
+							tspan(x='290.308' y='326.199') Fildershtadt
+						text(data-town="11" fill='white' xml:space='preserve' style='white-space: pre' font-family='Roboto' font-size='15.55' letter-spacing='0em')
+							tspan(x='121.583' y='301.125') Sindelfingen
+						text(data-town="12" fill='white' xml:space='preserve' style='white-space: pre' font-family='Roboto' font-size='15.55' letter-spacing='0em')
+							tspan(x='0.333008' y='241.657') Weil der Stadt
+						text(data-town="13" fill='white' xml:space='preserve' style='white-space: pre' font-family='Roboto' font-size='15.55' letter-spacing='0em')
+							tspan(x='131.343' y='213.794') Leonberg
+						text(data-town="15" fill='white' xml:space='preserve' style='white-space: pre' font-family='Roboto' font-size='15.55' letter-spacing='0em')
+							tspan(x='223.459' y='111.329') Ludwigsburg
+						text(data-town="16" fill='white' xml:space='preserve' style='white-space: pre' font-family='Roboto' font-size='15.55' letter-spacing='0em')
+							tspan(x='212.041' y='34.1921') Bietigheim-Bissingen
+						text(data-town="5" fill='white' xml:space='preserve' style='white-space: pre' font-family='Roboto' font-size='15.55' letter-spacing='0em')
+							tspan(x='425.808' y='56.924') Backnang
+						text(data-town="4" fill='white' xml:space='preserve' style='white-space: pre' font-family='Roboto' font-size='15.55' letter-spacing='0em')
+							tspan(x='380.788' y='119.818') Winnenden
+						text(data-town="3" fill='white' xml:space='preserve' style='white-space: pre' font-family='Roboto' font-size='15.55' letter-spacing='0em')
+							tspan(x='389.839' y='166.815') Waiblingen
+						text(data-town="9" fill='white' xml:space='preserve' style='white-space: pre' font-family='Roboto' font-size='15.55' letter-spacing='0em')
+							tspan(x='401.857' y='391.464') Nurtingen
+						text(data-town="7" fill='white' xml:space='preserve' style='white-space: pre' font-family='Roboto' font-size='15.55' letter-spacing='0em')
+							tspan(x='488.586' y='361.464') Kirchheim 
+							tspan(x='488.586' y='376.464') unter Teck
+						text(data-town="10" fill='white' xml:space='preserve' style='white-space: pre' font-family='Roboto' font-size='15.55' letter-spacing='0em')
+							tspan(x='148.16' y='322.199') Boblingen
+
+
+				

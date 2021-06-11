@@ -1,0 +1,24 @@
+#thanks {
+    .popup {
+        &__body {}
+    }
+}
+
+@media (min-width: map-get($grid-breakpoints, md)) {
+    #thanks {
+        .popup {
+            &__body {
+                width: 31.8125rem;
+            }
+        }
+    }
+}
+@media (min-width: map-get($grid-breakpoints, lg)) {
+    #thanks {
+        .popup {
+            &__body {
+                width: 35.9375rem;
+            }
+        }
+    }
+}

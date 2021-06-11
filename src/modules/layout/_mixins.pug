@@ -1,0 +1,161 @@
+//- include widgets/_menu
+include widgets/_a-form
+include widgets/_slider
+
+//- POPUP BASE
+
+mixin popup
+	.popup.uk-modal(data-uk-modal)&attributes(attributes)
+		.popup__body.uk-modal-dialog.uk-margin-auto-vertical
+			button.popup__close.uk-modal-close-default(type="button" data-uk-close)
+			block
+
+mixin popup-video-16-9
+	.popup-video.popup.uk-modal(data-uk-modal)&attributes(attributes)
+		.popup__body.uk-modal-dialog.uk-margin-auto-vertical.embed-responsive.embed-responsive-16by9
+			button.popup__close.uk-modal-close-default(type="button" data-uk-close)
+			block
+
+mixin quiz 
+	.quiz 
+
+		h1.title TITLE
+
+		ul.quiz-items 
+			li
+				h2 item 1
+				ul.quiz-radios
+					li
+					li
+					li
+
+			li
+				h2 item 2
+				ul.quiz-options
+					li
+					li
+					li
+			li
+				h2 item 3
+				input.quiz-input
+		ul.quiz-nav 
+		a.quiz-prev(href="#") PREV
+		a.quiz-next(href="#") NEXT
+		
+		progress.quiz-progress.uk-progress(value="0" max="100")
+
+//- ICONSET
+
+mixin icon(icon, filler = 'currentColor')
+	case icon
+		when 'phone'
+			svg(viewBox="0 0 26 25" fill=filler xmlns="http://www.w3.org/2000/svg")&attributes(attributes)
+				path(fill-rule="evenodd" clip-rule="evenodd" d="M3.30596 0.964449C3.57687 0.693946 3.90218 0.484107 4.26032 0.348836C4.61846 0.213565 5.00126 0.155952 5.38336 0.179814C5.76545 0.203677 6.13811 0.30847 6.47663 0.487249C6.81516 0.666029 7.11183 0.914712 7.34698 1.21682L10.1262 4.78716C10.6355 5.44209 10.8151 6.29519 10.6139 7.1003L9.76695 10.491C9.72316 10.6667 9.72553 10.8506 9.77382 11.0251C9.82211 11.1995 9.91468 11.3585 10.0425 11.4866L13.8467 15.2907C13.9749 15.4188 14.1342 15.5116 14.3089 15.5599C14.4837 15.6082 14.6679 15.6104 14.8438 15.5663L18.233 14.7194C18.6303 14.6201 19.045 14.6123 19.4457 14.6968C19.8464 14.7813 20.2227 14.9558 20.5461 15.2071L24.1164 17.9847C25.4 18.9834 25.5176 20.88 24.3688 22.0273L22.7679 23.6282C21.6222 24.774 19.9098 25.2771 18.3135 24.7151C14.2278 23.2776 10.5183 20.9386 7.46001 17.8717C4.3933 14.8139 2.05434 11.1049 0.616594 7.01979C0.0561152 5.42505 0.559307 3.7111 1.70504 2.56537L3.30596 0.964449Z" fill=filler)
+		when 'circles'
+			svg(viewBox="0 0 514 514" fill="none" xmlns="http://www.w3.org/2000/svg")&attributes(attributes)
+				circle(cx="257.221" cy="256.678" r="180.525" stroke="#F2F5FC" stroke-width="3")
+				circle(cx="257.221" cy="256.678" r="209.087" stroke="#F2F5FC" stroke-width="3")
+				circle(cx="257.222" cy="256.678" r="255.524" stroke="#F2F5FC" stroke-width="2")
+
+
+		when 'angle-down'
+			svg(width="23" height="13" viewBox="0 0 23 13" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none")&attributes(attributes)
+				path(d="M21.0206 1.66657L11.5114 9.67432L2.0022 1.66657" stroke=filler stroke-width="4")
+		when 'angle-left'
+			svg(width="13" height="24" viewBox="0 0 13 24" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none")&attributes(attributes)
+				path(d="M11.8093 22.3843L1.61725 12.1922L11.8093 2.00012" stroke=filler stroke-width="3" stroke-linejoin="round")
+		when 'angle-right'
+			svg(width="13" height="24" viewBox="0 0 13 24" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none")&attributes(attributes)
+				path(d="M1.19214 22.3843L11.3842 12.1922L1.19214 2.00012" stroke=filler stroke-width="3" stroke-linejoin="round")
+		when 'angle-left-sm'
+			svg(width="9" height="15" viewBox="0 0 9 15" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none")&attributes(attributes)
+				path(d="M7.78778 1.11401L1.34934 7.55246L7.78778 13.9909" stroke=filler)
+		when 'angle-right-sm'
+			svg(width="8" height="15" viewBox="0 0 8 15" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none")&attributes(attributes)
+				path(d="M0.787109 13.991L7.22555 7.55252L0.787108 1.11408" stroke=filler)
+		
+
+//- PICTURE
+
+//- type: `jpg`/ `png` or jpg/ png if so-called var exsist
+	src: `${path}/to/img`  - without postfixes and dimensions
+	dimentions: `s`/ `sml`/ `sl`/ `smlx`/ `sx`....
+	retina: true/ false
+
+	Атрибуты типа class, alt записываются как обычно в скобках сразу за миксином  --> +picture(jpg, 'tmp')(class="pic" alt="lev")
+
+	Называть картинку так --> any-name-sm.jpg / any-name-lg@2x.png
+
+- var jpg = `jpg`, png = `png`, svg = `svg` //- для удобства
+
+- var globalRetinaUsage = `` //- `` -if false
+- var globalDimentionsUsage = `sm`
+
+- var postfixRetina = '@2x'
+- var postfix = { sm: `-sm`, md: `-md`, lg: `-lg`, xl: `-xl` } //- `smlx`
+
+mixin picture(type, src, dimentions = globalDimentionsUsage, retina = globalRetinaUsage)
+	picture
+		if type != 'jpg' && type != 'png'
+			if dimentions.includes(`n`)
+				source(srcset=ipl data-srcset!=`${src}.${type}`)
+				img.lazyload(src!=ipl data-src!=`${src}.${type}` alt='')&attributes(attributes)
+			else
+				if dimentions.includes(`x`)
+					source(media=`(min-width: ${xl}px)` srcset=ipl data-srcset!=`${src + postfix.xl}.${type}`)
+				if dimentions.includes(`l`)
+					source(media=`(min-width: ${lg}px)` srcset=ipl data-srcset!=`${src + postfix.lg}.${type}`)
+				if dimentions.includes(`m`)
+					source(media=`(min-width: ${md}px)` srcset=ipl data-srcset!=`${src + postfix.md}.${type}`)
+				if dimentions.includes(`s`)
+					source(media=`(min-width: 0px)` srcset=ipl data-srcset!=`${src + postfix.sm}.${type}`)
+				if dimentions.includes(`l`)
+					img.lazyload(src!=ipl data-src!=`${src + postfix.lg}.${type}` alt='')&attributes(attributes)
+				else
+					img.lazyload(src!=ipl data-src!=`${src + postfix.md}.${type}` alt='')&attributes(attributes)
+		else
+			if dimentions.includes(`n`)
+				source(srcset=ipl data-srcset!=`${retina.includes(`n`) ? `${src + postfixRetina}.webp 2x, ` : ``}${src}.webp${retina.includes(`n`) ? ` 1x` : ``}` type=`image/webp`)
+				source(srcset=ipl data-srcset!=`${retina.includes(`n`) ? `${src + postfixRetina}.${type} 2x, ` : ``}${src}.${type}${retina.includes(`n`) ? ` 1x` : ``}` type=`image/${type}`)
+				img.lazyload(src!=ipl data-src!=`${src}.${type}` alt='')&attributes(attributes)
+			else
+				if dimentions.includes(`x`)
+					source(media=`(min-width: ${xl}px)` srcset=ipl data-srcset!=`${retina.includes(`x`) ? `${src + postfix.xl + postfixRetina}.webp 2x, ` : ``}${src + postfix.xl}.webp${retina.includes(`x`) ? ` 1x` : ``}` type=`image/webp`)
+					source(media=`(min-width: ${xl}px)` srcset=ipl data-srcset!=`${retina.includes(`x`) ? `${src + postfix.xl + postfixRetina}.${type} 2x, ` : ``}${src + postfix.xl}.${type}${retina.includes(`x`) ? ` 1x` : ``}` type=`image/${type}`)
+				if dimentions.includes(`l`)
+					source(media=`(min-width: ${lg}px)` srcset=ipl data-srcset!=`${retina.includes(`l`) ? `${src + postfix.lg + postfixRetina}.webp 2x, ` : ``}${src + postfix.lg}.webp${retina.includes(`l`) ? ` 1x` : ``}` type=`image/webp`)
+					source(media=`(min-width: ${lg}px)` srcset=ipl data-srcset!=`${retina.includes(`l`) ? `${src + postfix.lg + postfixRetina}.${type} 2x, ` : ``}${src + postfix.lg}.${type}${retina.includes(`l`) ? ` 1x` : ``}` type=`image/${type}`)
+				if dimentions.includes(`m`)
+					source(media=`(min-width: ${md}px)` srcset=ipl data-srcset!=`${retina.includes(`m`) ? `${src + postfix.md + postfixRetina}.webp 2x, ` : ``}${src + postfix.md}.webp${retina.includes(`m`) ? ` 1x` : ``}` type=`image/webp`)
+					source(media=`(min-width: ${md}px)` srcset=ipl data-srcset!=`${retina.includes(`m`) ? `${src + postfix.md + postfixRetina}.${type} 2x, ` : ``}${src + postfix.md}.${type}${retina.includes(`m`) ? ` 1x` : ``}` type=`image/${type}`)
+				if dimentions.includes(`s`)
+					source(media=`(min-width: 0px)` srcset=ipl data-srcset!=`${retina.includes(`s`) ? `${src + postfix.sm + postfixRetina}.webp 2x, ` : ``}${src + postfix.sm}.webp${retina.includes(`s`) ? ` 1x` : ``}` type=`image/webp`)
+					source(media=`(min-width: 0px)` srcset=ipl data-srcset!=`${retina.includes(`s`) ? `${src + postfix.sm + postfixRetina}.${type} 2x, ` : ``}${src + postfix.sm}.${type}${retina.includes(`s`) ? ` 1x` : ``}` type=`image/${type}`)
+				if dimentions.includes(`l`)
+					img.lazyload(src!=ipl data-src!=`${src + postfix.lg}.${type}` alt='')&attributes(attributes)
+				else
+					img.lazyload(src!=ipl data-src!=`${src + postfix.md}.${type}` alt='')&attributes(attributes)
+			
+mixin picture-min(type, src, minSrc,  dimentions = globalDimentionsUsage, retina = globalRetinaUsage)
+	picture
+		if dimentions.includes(`n`)
+			source(srcset=`${minSrc}-min.${type}` data-srcset!=`${retina.includes(`n`) ? `${src + postfixRetina}.webp 2x, ` : ``}${src}.webp${retina.includes(`n`) ? ` 1x` : ``}` type=`image/webp`)
+			source(srcset=`${minSrc}-min.${type}` data-srcset!=`${retina.includes(`n`) ? `${src + postfixRetina}.${type} 2x, ` : ``}${src}.${type}${retina.includes(`n`) ? ` 1x` : ``}` type=`image/${type}`)
+			img.lazyload.lazymin(src!=`${minSrc}-min.${type}` data-src!=`${src}.${type}` alt='')&attributes(attributes)
+		else
+			if dimentions.includes(`x`)
+				source(media=`(min-width: ${xl}px)` srcset=`${minSrc + postfix.xl}-min.${type}` data-srcset!=`${retina.includes(`x`) ? `${src + postfix.xl + postfixRetina}.webp 2x, ` : ``}${src + postfix.xl}.webp${retina.includes(`x`) ? ` 1x` : ``}` type=`image/webp`)
+				source(media=`(min-width: ${xl}px)` srcset=`${minSrc + postfix.xl}-min.${type}` data-srcset!=`${retina.includes(`x`) ? `${src + postfix.xl + postfixRetina}.${type} 2x, ` : ``}${src + postfix.xl}.${type}${retina.includes(`x`) ? ` 1x` : ``}` type=`image/${type}`)
+			if dimentions.includes(`l`)
+				source(media=`(min-width: ${lg}px)` srcset=`${minSrc + postfix.lg}-min.${type}` data-srcset!=`${retina.includes(`l`) ? `${src + postfix.lg + postfixRetina}.webp 2x, ` : ``}${src + postfix.lg}.webp${retina.includes(`l`) ? ` 1x` : ``}` type=`image/webp`)
+				source(media=`(min-width: ${lg}px)` srcset=`${minSrc + postfix.lg}-min.${type}` data-srcset!=`${retina.includes(`l`) ? `${src + postfix.lg + postfixRetina}.${type} 2x, ` : ``}${src + postfix.lg}.${type}${retina.includes(`l`) ? ` 1x` : ``}` type=`image/${type}`)
+			if dimentions.includes(`m`)
+				source(media=`(min-width: ${md}px)` srcset=`${minSrc + postfix.md}-min.${type}` data-srcset!=`${retina.includes(`m`) ? `${src + postfix.md + postfixRetina}.webp 2x, ` : ``}${src + postfix.md}.webp${retina.includes(`m`) ? ` 1x` : ``}` type=`image/webp`)
+				source(media=`(min-width: ${md}px)` srcset=`${minSrc + postfix.md}-min.${type}` data-srcset!=`${retina.includes(`m`) ? `${src + postfix.md + postfixRetina}.${type} 2x, ` : ``}${src + postfix.md}.${type}${retina.includes(`m`) ? ` 1x` : ``}` type=`image/${type}`)
+			if dimentions.includes(`s`)
+				source(media=`(min-width: 0px)` srcset=`${minSrc + postfix.sm}-min.${type}` data-srcset!=`${retina.includes(`s`) ? `${src + postfix.sm + postfixRetina}.webp 2x, ` : ``}${src + postfix.sm}.webp${retina.includes(`s`) ? ` 1x` : ``}` type=`image/webp`)
+				source(media=`(min-width: 0px)` srcset=`${minSrc + postfix.sm}-min.${type}` data-srcset!=`${retina.includes(`s`) ? `${src + postfix.sm + postfixRetina}.${type} 2x, ` : ``}${src + postfix.sm}.${type}${retina.includes(`s`) ? ` 1x` : ``}` type=`image/${type}`)
+			if dimentions.includes(`l`)
+				img.lazyload.lazymin(src!=`${minSrc + postfix.lg}-min.${type}` data-src!=`${src + postfix.lg}.${type}` alt='')&attributes(attributes)
+			else
+				img.lazyload.lazymin(src!=`${minSrc + postfix.md}-min.${type}` data-src!=`${src + postfix.md}.${type}` alt='')&attributes(attributes)
