@@ -13,7 +13,6 @@ UIkit.util.ready(function () {
     document.querySelectorAll(`.s7__map-svg circle`).forEach(el => {
         el.addEventListener('mouseover', ev => {
             document.querySelector(`.s7__map-svg text[data-town="${el.dataset.town}"]`).classList.add('transform')
-            console.dir(el.getBoundingClientRect())
             document.querySelector(`.s7__map-circles`).style = `top: ${el.getBoundingClientRect().y - 5}px; left: ${el.getBoundingClientRect().x - 5}px`
             document.querySelector(`.s7__map-circles`).classList.add('active')
         })

@@ -842,6 +842,7 @@
                 cursor: pointer;
             }
             text {
+                font-family: $font-family-base;
                 transition: $transition--fast;
                 text-align: center;
                 &.transform {
