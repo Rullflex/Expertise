@@ -1,6 +1,7 @@
 import 'lazysizes'
 import UIkit from 'uikit'
 import validate from 'validate.js'
+import IMask from 'imask'
 
 export const app = {
     isMobile: {
@@ -13,7 +14,7 @@ export const app = {
     },
     md: 768,
     lg: 1170,
-    apiSrc: '/api/',
+    apiSrc: 'http://hafizovtimur.ru/api/',
     loaderHtml: `<div class="loader-wrap">
         <div class="loader">
             <div></div>
@@ -149,7 +150,6 @@ export const app = {
             })
         })
     },
-
     // маска для телефонов
     phoneMask(input) {
         if (input) {
@@ -335,7 +335,7 @@ export const form = {
                 greaterThanOrEqualTo: 0
             }
         },
-        "Phone": {
+        "Telefonnummer": {
             presence: true,
             isMaskComplete: true
         }
@@ -353,8 +353,30 @@ export const form = {
 
 
     phoneMask(form) {
+        let options = {
+            mask: `+490 00 000 0000`,
+            lazy: false,
+        }
+        let mask
         document.querySelectorAll(`${form} input.phone`).forEach((e) => {
-            app.phoneMask(e)
+            // app.phoneMask(e)
+
+            e.addEventListener(`focusin`, () => {
+                mask = IMask(
+                    e, options)
+            })
+            e.addEventListener(`focusout`, () => {
+                if (mask.value.match(/_/g) != null) {
+                    e.value = null
+                    e.parentElement.classList.remove(`complete`)
+                } else {
+                    e.parentElement.classList.add(`complete`)
+                }
+                mask.destroy()
+
+                e.classList.remove(`focus`)
+                e.parentElement.classList.remove(`focus`)
+            })
         })
     },
 
@@ -455,13 +477,12 @@ export const form = {
 
     showSuccess(form) {
         // ym(71270149,'reachGoal','form')
-        // UIkit.modal(`#thanks`).show();
 
         this.sendFormData(form)
-        setTimeout('location="https://romangordin.ru/thanks/index.html";', 500)
+        UIkit.modal('#thanks').show()
     },
 
-    sendFormData(form, phpSrc = `${app.apiSrc}mail.php`) {
+    sendFormData(form, phpSrc = `${app.apiSrc}mail-germany.php`) {
         const formData = new FormData(typeof (form) == 'string' ? document.querySelector(form) : form)
 
         fetch(phpSrc, {

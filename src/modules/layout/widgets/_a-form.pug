@@ -2,7 +2,7 @@ mixin a-from
     form.a-form&attributes(attributes)
         p.a-form__title Wir rufen Sie in 30 Sekunden Kostenlos zurück
         .a-form__input-wrap.input-wrap 
-            input.a-form__input.input(type='tel' name='Telefonnummer' placeholder="Telefonnummer eingeben")
+            input.a-form__input.input.phone(type='tel' name='Telefonnummer' placeholder="Telefonnummer eingeben")
         button.a-form__btn.btn.btn-solid-primary(type="submit") 
             +icon('phone')
             span Jetzt Rückruf Kostenlos anfordern
