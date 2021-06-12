@@ -262,7 +262,7 @@ export const form = {
     inputWrap: `.input-wrap`,
     disableMessages: true,
     removeErrorOnFocus: true,
-    constrains: {
+    constraints: {
         email: {
             // Email is required
             presence: true,
@@ -337,7 +337,7 @@ export const form = {
         },
         "Telefonnummer": {
             presence: true,
-            isMaskComplete: true
+            // isMaskComplete: true
         }
     },
 
@@ -403,7 +403,7 @@ export const form = {
         document.querySelectorAll(`${form} input[name], ${form} textarea[name], ${form} select[name]`).forEach((el) => {
             el.addEventListener("change", ev => {
                 const currentForm = el.closest(form)
-                const errors = validate(currentForm, this.formConstraints(form)) || {}
+                const errors = validate(currentForm, this.formConstraints(currentForm)) || {}
 
                 this.showErrorsForInput(el, errors[el.name])
             })
@@ -477,7 +477,49 @@ export const form = {
 
     showSuccess(form) {
         // ym(71270149,'reachGoal','form')
+        if (!this.timer) {
 
+            this.timer = true
+
+
+            function getTimeRemaining(endtime) {
+                var t = Date.parse(endtime) - Date.parse(new Date());
+                var seconds = Math.floor((t / 1000) % 60);
+                var minutes = Math.floor((t / 1000 / 60) % 60);
+                var hours = Math.floor((t / (1000 * 60 * 60)) % 24);
+                return {
+                    'total': t,
+                    'hours': hours,
+                    'minutes': minutes,
+                    'seconds': seconds
+                };
+            }
+
+            function initializeClock(id, endtime) {
+                var clock = document.getElementById(id);
+                var hoursSpan = clock.querySelector('.hours');
+                var minutesSpan = clock.querySelector('.minutes');
+                var secondsSpan = clock.querySelector('.seconds');
+
+                function updateClock() {
+                    var t = getTimeRemaining(endtime);
+
+                    hoursSpan.innerHTML = ('0' + t.hours).slice(-2);
+                    minutesSpan.innerHTML = ('0' + t.minutes).slice(-2);
+                    secondsSpan.innerHTML = ('0' + t.seconds).slice(-2);
+
+                    if (t.total <= 0) {
+                        clearInterval(timeinterval);
+                    }
+                }
+
+                updateClock();
+                var timeinterval = setInterval(updateClock, 1000);
+            }
+
+            var deadline = new Date(Date.parse(new Date()) + 3.6e+6); // for endless timer
+            initializeClock('countdown', deadline);
+        }
         this.sendFormData(form)
         UIkit.modal('#thanks').show()
     },

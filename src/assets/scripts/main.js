@@ -6,7 +6,6 @@ import {
 
 UIkit.util.ready(function () {
     app.init()
-    // UIkit.modal('#thanks').show()
     // FORM
     form.init('form')
 
