@@ -8,4 +8,4 @@ mixin a-from
             span Jetzt Rückruf Kostenlos anfordern
         .a-form__bot 
             p.a-form__bot-text Oder selbst anrufen:
-            a.a-form__bot-phone.link(href=phoneLink)= phoneNumber
+            a.a-form__bot-phone.link(href=phoneLink onclick="gtag('send', 'event', 'CLICK PHONE')")= phoneNumber

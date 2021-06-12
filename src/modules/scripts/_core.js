@@ -477,6 +477,7 @@ export const form = {
 
     showSuccess(form) {
         // ym(71270149,'reachGoal','form')
+        gtag('send', 'event', 'Request')
         if (!this.timer) {
 
             this.timer = true

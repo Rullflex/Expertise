@@ -12,7 +12,7 @@ block header
 				.header__place 
 					+picture(png, `${modules}header-map-2x`, 'n')
 					span Stuttgart
-				a.header__phone(href=phoneLink)
+				a.header__phone(href=phoneLink onclick="gtag('send', 'event', 'CLICK PHONE')")
 					+icon('phone')
 					span= phoneNumber
 
@@ -27,7 +27,7 @@ block footer
 			.container.footer__bot-container
 				.footer__bot-sud Süd West Gutachterzentrale e.K      
 				.footer__bot-adress Mailänder Platz 15#[br.d-md-none] 70173 Stuttgart
-				.footer__bot-phone Telefon: #[a.link(href=phoneLink)= phoneNumber]
+				.footer__bot-phone Telefon: #[a.link(href=phoneLink onclick="gtag('send', 'event', 'CLICK PHONE')")= phoneNumber]
 				.footer__bot-mail E-Mail: #[a.link(href=`mailto${mailAdress}`)= mailAdress]
 
 
