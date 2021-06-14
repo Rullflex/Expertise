@@ -835,8 +835,15 @@
             position: absolute;
             top: 1.875rem;
             left: -4.375rem;
-            *:not(circle) {
+            *:not(circle):not(tspan){
+                // pointer-events: none;
+            }
+            text {
                 pointer-events: none;
+            }
+            tspan {
+                cursor: pointer;
+                pointer-events: initial;
             }
             circle {
                 cursor: pointer;

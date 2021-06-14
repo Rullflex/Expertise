@@ -23,6 +23,22 @@ UIkit.util.ready(function () {
             UIkit.modal('#callback').show()
         })
     })
+    document.querySelectorAll(`.s7__map-svg tspan`).forEach(el => {
+        el.addEventListener('mouseover', ev => {
+            el.parentElement.classList.add('transform')
+            const circleEl = document.querySelector(`.s7__map-svg circle[data-town="${el.parentElement.dataset.town}"]`)
+            document.querySelector(`.s7__map-circles`).style = `top: ${circleEl.getBoundingClientRect().y - 5}px; left: ${circleEl.getBoundingClientRect().x - 5}px`
+            document.querySelector(`.s7__map-circles`).classList.add('active')
+        })
+        el.addEventListener('mouseout', ev => {
+            el.parentElement.classList.remove('transform')
+            document.querySelector(`.s7__map-circles`).classList.remove('active')
+        })
+        el.addEventListener('click', ev => {
+            console.log(ev)
+            UIkit.modal('#callback').show()
+        })
+    })
 
 
     // app.letListClickActive(document.querySelector(`ul.list`))
