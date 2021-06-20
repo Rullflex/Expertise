@@ -860,6 +860,7 @@
                 animation: circle 3.2s linear infinite;
                 @include center-item();
                 transform-origin: left top;
+                transform: scale(0) translate(-50%, -50%); 
                 &:nth-child(2) {
                     animation-delay: 0.8s;
                 }
