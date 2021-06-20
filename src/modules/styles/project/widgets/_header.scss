@@ -24,7 +24,7 @@
         span {
             font-weight: 500;
             font-size: 0.8125rem;
-            color: #454545;
+            color: #20BC71;
         }
     }
 }
@@ -79,9 +79,15 @@
             }
         }
         &__phone {
+            &:hover {
+                span {
+                    color: link-hover(#20BC71);
+                }
+            }
             svg {
             }
             span {
+                transition: $transition--hover;
                 font-size: 1.5rem;
             }
         }

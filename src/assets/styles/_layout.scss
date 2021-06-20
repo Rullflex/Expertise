@@ -525,11 +525,17 @@
 .s5 {
     padding-top: 1.2625rem;
     padding-bottom: 1.875rem;
+    .container {
+        padding-top: 17rem;
+    }
     &__title {
         text-align: left;
         margin-left: 2.1875rem;
         margin-bottom: 15rem;
-        position: relative;
+        position: absolute;
+        top: 22rem;
+        left: 0.5625rem;
+        z-index: 4;
         &::after {
             content: '';
             display: block;
@@ -559,14 +565,14 @@
         z-index: 2;
     }
     &__block {
-        height: 34.25rem;
+        height: 40.3125rem;
         background: #FFFFFF;
         border: 0.0625rem solid #C6C6C6;
         box-shadow: 0.25rem 0.25rem 5.125rem rgba(0, 0, 0, 0.05);
         border-radius: 1.5625rem;
         position: relative;
         &-list {
-            padding-top: 4.9375rem;
+            padding-top: 10.9375rem;
             padding-left: 8.3125rem;
         }
         &-item {
@@ -584,7 +590,7 @@
     &__itemset {
         width: 6.5rem;
         position: absolute;
-        top: 3.85rem;
+        top: 9.75rem;
         left: 0.7rem;
     }
 }
@@ -592,9 +598,15 @@
     .s5 {
         padding-top: 3.75rem;
         padding-bottom: 2.75rem;
+        .container {
+            padding-top: 0;
+        }
         &__title {
             margin-left: 19.1rem;
             margin-bottom: 3.5rem;
+            position: relative;
+            top: unset;
+            left: unset;
             &::after {
                 width: 6.625rem;
                 height: 0.4375rem;
@@ -734,7 +746,6 @@
 }
 .s6 {
     padding-top: 2.2rem;
-    padding-bottom: 2.1875rem;
     &__title {
         width: 16.1375rem;
         margin: 0 auto 20.25rem;
@@ -757,7 +768,6 @@
 @media (min-width: map-get($grid-breakpoints, md)) {
     .s6 {
         padding-top: 2.8rem;
-        padding-bottom: 3.75rem;
         &__title {
             width: 31.25rem;
             margin: 0 auto 36.5625rem;
@@ -801,16 +811,32 @@
     }
 }
 .s7 {
-    padding-top: 2.1875rem;
+    margin-top: -0.875rem;
     &__title {
-        width: 19.375rem;
-        line-height: 1.4;
-        font-size: 1.5rem;
-        margin: 0 auto 1.425rem;
+        font-family: Roboto;
+        font-style: normal;
+        color: #FFFFFF;
+        padding-top: 3.375rem;
+        .top {
+            font-weight: bold;
+            font-size: 1.0625rem;
+            line-height: 1.25rem;
+            margin-bottom: 0.4375rem;
+        }
+        .mid {
+            font-weight: 900;
+            font-size: 1.6875rem;
+            line-height: 1em;
+            margin-bottom: 0.4375rem;
+        }
+        .bot {
+            font-size: 0.9375rem;
+            line-height: 1.6em;
+        }
     }
     &__map {
         width: 100%;
-        height: 29.1875rem;
+        height: 38.225rem;
         position: relative;
         &-bg {
             width: 100vw;
@@ -826,15 +852,45 @@
             position: absolute;
             bottom: -0.5625rem;
             left: -3.1rem;
+            z-index: 2;
         }
         &-circles {
-            display: none; 
-        }
-        &-svg {
-            width: 23rem;
             position: absolute;
-            top: 1.875rem;
-            left: -4.375rem;
+            svg {
+                animation: circle 3.2s linear infinite;
+                @include center-item();
+                transform-origin: left top;
+                &:nth-child(2) {
+                    animation-delay: 0.8s;
+                }
+                &:nth-child(3) {
+                    animation-delay: 1.6s;
+                }
+                &:nth-child(4) {
+                    animation-delay: 2.4s;
+                }
+            }
+        }
+        // &-circle {
+        //     animation: circle 2.4s linear infinite;
+        //     &--1 {}
+        //     &--2 {
+        //         animation-delay: 0.6s;
+        //     }
+        //     &--3 {
+        //         animation-delay: 1.2s;
+        //     }
+        //     &--4 {
+        //         animation-delay: 1.8s;
+        //     }
+        // }
+        &-svg {
+            &-wrap {
+                position: absolute;
+                top: 11.675rem;
+                left: -0.175rem;
+            }
+            width: 19.1rem;
             *:not(circle):not(tspan){
                 // pointer-events: none;
             }
@@ -842,11 +898,11 @@
                 pointer-events: none;
             }
             tspan {
-                cursor: pointer;
+                // cursor: pointer;
                 pointer-events: initial;
             }
             circle {
-                cursor: pointer;
+                // cursor: pointer;
             }
             text {
                 font-family: $font-family-base;
@@ -864,15 +920,25 @@
 }
 @media (min-width: map-get($grid-breakpoints, md)) {
     .s7 {
-        padding-top: 4.4rem;
+        margin-top: -2.0625rem;
         &__title {
-            width: 42rem;
-            font-size: 1.9375rem;
-            line-height: 1.5em;
-            margin: 0 auto 2.625rem;
+            padding-top: 7rem;
+            text-align: center;
+            .top {
+                font-size: 1.625rem;
+                line-height: 1.2em;
+                margin-bottom: 0.875rem;
+            }
+            .mid {
+                font-size: 2.625rem;
+                margin-bottom: 0.875rem;
+            }
+            .bot {
+                font-size: 1.4375rem;
+            }
         }
         &__map {
-            height: 52.0625rem;
+            height: 73.5625rem;
             &-bg {}
             &-auto {
                 width: 45rem;
@@ -880,9 +946,11 @@
                 left: -1.8rem;
             }
             &-svg {
+                &-wrap {
+                    top: 19.275rem;
+                    left: 1.1rem;
+                }
                 width: 40.625rem;
-                top: 2.275rem;
-                left: 1.1rem;
                 text {
                     &.transform {
                         font-size: 1.1rem;
@@ -899,15 +967,24 @@
 @media (min-width: map-get($grid-breakpoints, lg)) {
     .s7 {
         z-index: 2;
+        margin-top: 0;
         padding-top: 0;
         &__title {
-            color: white;
-            width: 38.2375rem;
-            font-size: 1.625rem;
-            margin: 0;
-            position: absolute;
-            top: 3.25rem;
-            left: 2.5rem;
+            padding-top: 2.3125rem;
+            padding-left: 1.9375rem;
+            text-align: left;
+            .top {
+                font-size: 1.625rem;
+                line-height: 1.2em;
+                margin-bottom: 0.875rem;
+            }
+            .mid {
+                font-size: 2.625rem;
+                margin-bottom: 0.875rem;
+            }
+            .bot {
+                font-size: 1.4375rem;
+            }
         }
         &__map {
             height: 35.75rem;
@@ -917,35 +994,13 @@
                 bottom: -2.9625rem;
                 left: -1.1rem;
             }
-            &-circles {
-                // display: none;
-                position: fixed;
-                top: 0;
-                left: 0;
-                &.active {
-                    display: block;
-                    svg {
-                        animation: circle 1.6s linear infinite;
-                        &:nth-child(2) {
-                            animation-delay: 0.4s;
-                        }
-                        &:nth-child(3) {
-                            animation-delay: 0.8s;
-                        }
-                        &:nth-child(4) {
-                            animation-delay: 1.2s;
-                        }
-                    }
-                }
-                svg {
-                    @include center-item();
-                    transform: scale(0);
-                }
-            }
+            
             &-svg {
+                &-wrap {
+                    top: 3.175rem;
+                    left: 32.825rem;
+                }
                 width: 37rem;
-                top: 3.175rem;
-                left: 32.825rem;
                 
             }
         }

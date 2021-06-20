@@ -4,11 +4,13 @@
 }
 @keyframes circle {
     0% { 
-        transform: scale(0); 
+        transform: scale(0) translate(-50%, -50%); 
+        // r: 4;
         opacity: 1;
     }
     100% { 
-        transform: scale(6); 
+        transform: scale(3.5) translate(-50%, -50%); 
+        // r: 40;
         opacity: 0;
     }
 }
