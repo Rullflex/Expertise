@@ -518,7 +518,7 @@ export const form = {
                 var timeinterval = setInterval(updateClock, 1000);
             }
 
-            var deadline = new Date(Date.parse(new Date()) + 3.6e+6); // for endless timer
+            var deadline = new Date(Date.parse(new Date()) + 30000); // for endless timer
             initializeClock('countdown', deadline);
         }
         this.sendFormData(form)
