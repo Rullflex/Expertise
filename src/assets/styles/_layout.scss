@@ -273,14 +273,23 @@
 .s3 {
     padding-top: 2.1875rem;
     padding-bottom: 2.1875rem;
+    &__suptitle {
+        text-align: left;
+        font-size: 1.25rem;
+        line-height: 1.4375rem;
+        margin-left: 0.625rem;
+    }
     &__title {
+        font-weight: 900;
+        text-align: left;
         margin-bottom: 0.9375rem;
+        margin-left: 0.625rem;
     }
     &__subtitle {
         font-size: 0.8125rem;
         line-height: 1.64em;
-        text-align: center;
         margin-bottom: 16.4375rem;
+        margin-left: 0.625rem;
     }
     &__img {
         width: 23.8125rem;
@@ -295,13 +304,21 @@
     .s3 {
         padding-top: 4.75rem;
         padding-bottom: 3.75rem;
+        &__suptitle {
+            font-size: 1.375rem;
+            line-height: 1.625rem;
+            margin-left: 6.25rem;
+        }
         &__title {
+            font-size: 2.5rem;
             margin-bottom: 0.9375rem;
+            margin-left: 6.25rem;
         }
         &__subtitle {
             width: 37rem;
             font-size: 1.25rem;
-            margin: 0 auto 27.6875rem;
+            margin: 0 auto 27.6875rem 6.25rem;
+            padding-right: 1.875rem;
         }
         &__img {
             width: 47.15rem;
@@ -317,9 +334,15 @@
     .s3 {
         padding-top: 4.775rem;
         padding-bottom: 5.625rem;
-        &__title {
+        &__suptitle {
+            font-size: 1.5625rem;
+            line-height: 1.8125rem;
             margin-left: 39.75rem;
-            margin-bottom: 0.3375rem;
+        }
+        &__title {
+            font-size: 2.625rem;
+            margin-left: 39.75rem;
+            margin-bottom: 0.7rem;
         }
         &__subtitle {
             margin-left: 39.75rem;
@@ -350,8 +373,15 @@
         }
     }
     &__title {
+        text-align: left;
         font-size: 1.5rem;
+        font-weight: 900;
         line-height: 1.25em;
+    }
+    &__subtitle {
+        text-align: left;
+        font-size: 1.0625rem;
+        line-height: 1.375rem;
         margin-bottom: 19.5875rem;
     }
     &__list {
@@ -407,14 +437,22 @@
         &__man {
             &-1 {
                 width: 32.325rem;
-                top: 1.875rem;
+                top: 3.875rem;
                 left: 8.65rem;
             }
         }
         &__title {
-            font-size: 2.025rem;
-            line-height: 2.5rem;
+            font-weight: 900;
+            font-size: 2.3125rem;
+            line-height: 1.12em;
+            margin-left: 6.25rem;
+            margin-bottom: 0.5rem;
+        }
+        &__subtitle {
+            font-size: 1.375rem;
+            line-height: 1.3em;
             margin-bottom: 24.3125rem;
+            margin-left: 6.25rem;
         }
         &__block {
             padding-top: 3.075rem;
@@ -467,14 +505,14 @@
                 position: absolute;
                 pointer-events: none;
                 width: 37.025rem;
-                top: 3.375rem;
+                top: 5.475rem;
                 left: 37.75rem;
                 z-index: 3;
             }
         }
         &__rect {
             width: 29.625rem;
-            top: 168px;
+            top: 12.25rem;
             right: 6.5rem;
             position: absolute;
             z-index: -2;
@@ -485,9 +523,12 @@
         }
         &__title {
             font-size: 2.4375rem;
-            line-height: 2.875rem;
-            margin-bottom: 2.4rem;
             margin-left: 5.4rem;
+        }
+        &__subtitle {
+            font-size: 1.5625rem;
+            margin-left: 5.4rem;
+            margin-bottom: 2.4rem;
         }
         &__block {
             padding-top: 2.725rem;
@@ -746,9 +787,19 @@
 }
 .s6 {
     padding-top: 2.2rem;
+    &__suptitle {
+        font-size: 1.0625rem;
+        line-height: 1.25rem;
+        text-align: left;
+        margin-left: 0.625rem;
+        margin-bottom: 0.3rem;
+    }
     &__title {
-        width: 16.1375rem;
-        margin: 0 auto 20.25rem;
+        font-weight: 900;
+        text-align: left;
+        font-size: 1.64rem;
+        margin-bottom: 20.25rem;
+        margin-left: 0.625rem;
     }
     &__circles {
         width: 15.25rem;
@@ -768,9 +819,15 @@
 @media (min-width: map-get($grid-breakpoints, md)) {
     .s6 {
         padding-top: 2.8rem;
+        &__suptitle {
+            font-size: 1.375rem;
+            line-height: 1.625rem;
+            margin-left: 6.25rem;
+        }
         &__title {
-            width: 31.25rem;
-            margin: 0 auto 36.5625rem;
+            font-size: 2.3125rem;
+            margin-left: 6.25rem;
+            margin-bottom: 36.5625rem;
         }
         &__circles {
             width: 29rem;
@@ -791,8 +848,12 @@
     .s6 {
         padding-top: 6.05rem;
         padding-bottom: 8.35rem;
+        &__suptitle {
+            font-size: 1.5625rem;
+            margin-left: 38.8375rem;
+        }
         &__title {
-            width: 31.875rem;
+            font-size: 2.4375rem;
             margin: 0 auto 2.3125rem 38.8375rem;
         }
         &__circles {
@@ -861,6 +922,7 @@
                 @include center-item();
                 transform-origin: left top;
                 transform: scale(0) translate(-50%, -50%); 
+                will-change: transform;
                 &:nth-child(2) {
                     animation-delay: 0.8s;
                 }
