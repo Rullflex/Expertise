@@ -917,20 +917,22 @@
         }
         &-circles {
             position: absolute;
-            svg {
-                animation: circle 3.2s linear infinite;
-                @include center-item();
+            @mixin svg-circle($count, $delay) {
                 transform-origin: left top;
                 transform: scale(0) translate(-50%, -50%); 
-                &:nth-child(2) {
-                    animation-delay: 0.8s;
+
+                $duration: 0;
+                @for $i from 1 through $count {
+                    &:nth-child(#{$i}) {
+                        animation-delay: #{$duration + s};
+                    }
+                    $duration: $duration + $delay;
                 }
-                &:nth-child(3) {
-                    animation-delay: 1.6s;
-                }
-                &:nth-child(4) {
-                    animation-delay: 2.4s;
-                }
+                animation: circle #{$duration + s} linear infinite;
+            }
+            svg {
+                @include center-item();
+                @include svg-circle(14, 0.8);
             }
         }
         // &-circle {
