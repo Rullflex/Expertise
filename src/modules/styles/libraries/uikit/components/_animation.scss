@@ -121,6 +121,9 @@ $animation-slide-medium-translate:               50px !default;
     animation-name: uk-stroke;
     stroke-dasharray: var(--uk-animation-stroke);
     animation-duration: $animation-stroke-duration;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+
 }
 
 
