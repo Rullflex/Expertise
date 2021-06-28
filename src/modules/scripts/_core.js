@@ -354,7 +354,7 @@ export const form = {
 
     phoneMask(form) {
         let options = {
-            mask: `+490 00 000 0000`,
+            mask: `+49 0000 00 00 000`,
             lazy: false,
         }
         let mask
