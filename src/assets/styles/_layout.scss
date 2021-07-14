@@ -952,9 +952,9 @@
             &-wrap {
                 position: absolute;
                 top: 11.675rem;
-                left: -0.175rem;
+                left: 0.8rem;
             }
-            width: 19.1rem;
+            width: 17.5rem;
             *:not(circle):not(tspan){
                 // pointer-events: none;
             }
@@ -1014,7 +1014,7 @@
                     top: 19.275rem;
                     left: 1.1rem;
                 }
-                width: 40.625rem;
+                width: 38rem;
                 text {
                     &.transform {
                         font-size: 1.1rem;
@@ -1064,7 +1064,7 @@
                     top: 3.175rem;
                     left: 32.825rem;
                 }
-                width: 37rem;
+                width: 34rem;
                 
             }
         }
